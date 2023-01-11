@@ -2,20 +2,22 @@ import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import Pagination from './Pages/Pagination';
 
 function App() {
 
+  const [limit, setLimit] = useState(10);
   const [data, setData] = useState();
 
-  useEffect(() => {
-    const getData = async () => {
-      const result = await axios.get("https://dummyjson.com/products?limit=100");
-      console.log(result.data)
-      setData(result.data);
-    }
+  const setPage = async (page) => {
+    const result = await axios.get(`https://dummyjson.com/products?limit=${limit}&skip=${page*limit}`);
+    setData(result.data);
+  }
 
-    getData();
+  useEffect(() => {
+    setPage(0);
   }, [])
+
 
   return (
     <div className="App">
@@ -48,6 +50,8 @@ function App() {
               }
           </tbody>
       </table>
+
+      {data && <Pagination total={data.total} limit={data.limit} page={0} setPage={setPage}/>}
     </div>
   );
 }
