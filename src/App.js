@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Pagination from './Pages/Pagination';
 import { useSelector } from 'react-redux';
+import Table from './Pages/Table';
 
 function App() {
 
@@ -28,36 +29,7 @@ function App() {
 
   return (
     <div className="App">
-      <table>
-          <thead>
-              <tr>
-                  <th>상품번호</th>
-                  <th>상품명</th>
-                  <th>브랜드</th>
-                  <th>상품내용</th>
-                  <th>가격</th>
-                  <th>평점</th>
-                  <th>재고</th>
-              </tr>
-          </thead>
-          <tbody>
-              {
-                  data?.products.map((item, idx) => {
-                    const {id, title, brand, description, price, rating, stock} = item;
-                    return <tr key={idx}>
-                      <td>{id}</td>
-                      <td>{title}</td>
-                      <td>{brand}</td>
-                      <td>{description}</td>
-                      <td>{price}</td>
-                      <td>{rating}</td>
-                      <td>{stock}</td>
-                    </tr>
-                  })
-              }
-          </tbody>
-      </table>
-
+      <Table data={data}/>
       {data && <Pagination total={data.total} limit={data.limit} page={0} setPage={setPage}/>}
     </div>
   );
