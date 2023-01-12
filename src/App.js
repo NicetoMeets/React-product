@@ -3,6 +3,7 @@ import './App.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Pagination from './Pages/Pagination';
+import { useSelector } from 'react-redux';
 
 function App() {
 
@@ -17,6 +18,12 @@ function App() {
   useEffect(() => {
     setPage(0);
   }, [])
+
+  const test = useSelector((state) => {
+    return state;
+  })
+
+  console.log(test, 'test')
 
 
   return (
