@@ -10,7 +10,6 @@ function Search ({state, setState, getTotalData}) {
     const onChangeSelect = (e) => {
         const { target : { value, name }} = e;
         
-        
         setSearch({
             ...search,
             [name]: value
@@ -33,7 +32,7 @@ function Search ({state, setState, getTotalData}) {
             condition: search.condition
         })
         window.history.pushState("", "", `?limit=${search.limit}&condition=${search.condition}&word=${state.word}`)
-        getTotalData();
+        getTotalData(search.condition, state.word);
     }
 
     useEffect(() => {

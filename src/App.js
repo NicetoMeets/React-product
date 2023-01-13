@@ -25,8 +25,7 @@ function App() {
   }
 
   // 검색 데이터
-  const getTotalData = () => {
-    const {condition, word} = state;
+  const getTotalData = (condition, word) => {
 
     const totalData = data?.products.filter(e => {
 
@@ -79,7 +78,7 @@ function App() {
   }, [])
 
   useEffect(() => {
-    getTotalData();
+    getTotalData(state.condition, state.word);
   }, [data]);
 
   useEffect(() => {
