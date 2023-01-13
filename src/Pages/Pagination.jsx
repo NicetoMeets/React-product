@@ -1,10 +1,11 @@
-function Pagination({total, limit, page, setPage}) {
+function Pagination({total = 0, state, setPage}) {
 
-    const numPages = Math.ceil(total / limit);
-
+    const {limit, page} = state;
+    const numPages = Math.ceil(Number(total) / limit);
+    
     return (
     <nav>
-        <button onClick={() => setPage(page - 1)} disabled={page === 1}>
+        <button onClick={() => setPage(page)} disabled={page === 1}>
             &lt;
         </button>
         {Array(numPages)
