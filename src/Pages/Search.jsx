@@ -37,9 +37,9 @@ function Search ({state, setState, getTotalData}) {
 
     useEffect(() => {
         const params = new URLSearchParams(window.location.search);
-        const word = params.get("word");
-        const limit = params.get("limit");
-        const condition = params.get("condition");
+        const word = params.get("word") || '';
+        const limit = params.get("limit") || 10;
+        const condition = params.get("condition") || '';
 
         setState({
             ...state,
@@ -62,13 +62,14 @@ function Search ({state, setState, getTotalData}) {
                 <option value='description'>상품내용</option>
             </select>
             <input name="word" value={state.word || ''} onChange={(e) => onChangeInput(e)}></input>
+            <button onClick={() => onClick()}>검색</button>
+
             <strong>페이지당 행 : </strong>
             <select name="limit" onChange={(e) => onChangeSelect(e)} value={search.limit}>
                 <option value='10'>10</option>
                 <option value='20'>20</option>
                 <option value='30'>30</option>
             </select>
-            <button onClick={() => onClick()}>검색</button>
         </>
     )
 }

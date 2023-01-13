@@ -28,9 +28,9 @@ function App() {
   const getTotalData = (condition, word) => {
 
     const totalData = data?.products.filter(e => {
-
       const {title, brand, description} = e;
       const compareWord = word.toLowerCase();
+
       if (condition === "") {
         return (title.toLowerCase().includes(compareWord) || description.toLowerCase().includes(compareWord));
       }
@@ -50,8 +50,6 @@ function App() {
 
   // 페이지 세팅
   const setPage = (page) => {
-
-    console.log(page)
 
     if (!totalData) return;
 
