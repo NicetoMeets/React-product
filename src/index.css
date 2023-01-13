@@ -20,21 +20,23 @@ table {
 
 th {
     text-align: center;
-    border-style: solid;
     vertical-align: middle;
-    border-top: 1px solid #707070;
-    border-bottom: 1px solid #707070;
-    border-left: 1px solid #707070;
-    border-right: 1px solid #707070;
+    border-style: none;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.03),
+    0px 3px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px;
 }
 
 td {
   line-height: 172%;
   text-align: center;
-  letter-spacing: -0.03em;
   vertical-align: middle;
-  border-bottom: 1px solid #707070;
-
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.03),
+  0px 1px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 7px;
 }
 
 button {
@@ -43,8 +45,14 @@ button {
   font-size:14px;
   line-height:16px;
   color:#fff;
-  background-color: rgb(148, 175, 196);
+  background-color: rgb(166, 192, 211);
+  border-radius: 5px;
 }
+
+button:hover {
+  background-color: rgb(77, 111, 136);
+}
+
 
 input {
   width:300px;
@@ -54,8 +62,39 @@ input {
 }
 
 select {
-  width:60px;
-  height:30px;
-  font-size:14px;
-  line-height:16px;
+  font-size:15px;
+  line-height:15px;
 }
+
+.container {
+  margin: 30px;
+}
+
+.search {
+  margin: 20px;
+  padding: 10px;
+  box-shadow: 0px 19px 38px rgba(0, 0, 0, 0.03),
+  0px 15px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.searchInput {
+  display: flex;
+  margin-left: 20px;
+  justify-content: flex-start;
+}
+
+
+.list {
+  margin: 20px;
+  padding: 10px;
+  box-shadow: 0px 19px 38px rgba(0, 0, 0, 0.03),
+  0px 15px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.navBtn {
+  margin: 20px;
+  text-align: center;
+}
+

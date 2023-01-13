@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
@@ -84,11 +83,19 @@ function App() {
   }, [totalData])
 
   return (
-    <div className="App">
+    <div className ='container'>
+    <div className='search'>
+      <h4 style={{ margin: '20px'}}>상품검색</h4>
+      <div className='searchInput'>
+      <span style={{marginRight:'20px'}}>검색</span>
       <Search state={state} setState={setState} getTotalData={getTotalData}/>
-      {totalData && <p>검색된 데이터 : {totalData.length}</p>}
+      </div>
+      </div>
+      {totalData && <p style={{ marginLeft: '20px'}}>검색된 데이터 : {totalData.length}</p>}
+      <div className='list'>
       <Table data={showData} />
       {totalData && <Pagination total={totalData.length} state={state} setPage={setPage}/>}
+      </div>
     </div>
   );
 }

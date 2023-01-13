@@ -55,7 +55,7 @@ function Search ({state, setState, getTotalData}) {
 
     return (
         <>
-            <select name="condition" onChange={(e) => onChangeSelect(e)} value={search.condition}>
+            <select style={{marginLeft:'30px', width:'100px'}} name="condition" onChange={(e) => onChangeSelect(e)} value={search.condition}>
                 <option value=''>전체</option>
                 <option value='title'>상품명</option>
                 <option value='brand'>브랜드</option>
@@ -64,8 +64,8 @@ function Search ({state, setState, getTotalData}) {
             <input name="word" value={state.word || ''} onChange={(e) => onChangeInput(e)}></input>
             <button onClick={() => onClick()}>검색</button>
 
-            <strong>페이지당 행 : </strong>
-            <select name="limit" onChange={(e) => onChangeSelect(e)} value={search.limit}>
+            <strong style={{marginLeft:'50px'}}>페이지당 행 : </strong>
+            <select style={{marginLeft:'10px'}} name="limit" onChange={(e) => onChangeSelect(e)} value={search.limit}>
                 <option value='10'>10</option>
                 <option value='20'>20</option>
                 <option value='30'>30</option>

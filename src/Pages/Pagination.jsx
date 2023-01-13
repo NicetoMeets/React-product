@@ -4,14 +4,14 @@ function Pagination({total = 0, state, setPage}) {
     const numPages = Math.ceil(Number(total) / limit);
     
     return (
-    <nav>
+    <nav className="navBtn">
         <button onClick={() => setPage(page)} disabled={page === 1}>
             &lt;
         </button>
         {Array(numPages)
             .fill()
             .map((_, i) => (
-            <button
+            <button style={{margin:'auto'}}
                 key={i}
                 onClick={() => setPage(i)}
                 aria-current={page === i ? "page" : null}
