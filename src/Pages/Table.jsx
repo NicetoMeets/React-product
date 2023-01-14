@@ -1,4 +1,9 @@
 function Table ({data}) {
+    
+    const truncate = (str, n) => {
+        return str?.length > n ? str.substr(0, n - 1) + "..." : str;
+    };
+
     return (
         <>
             <table>
@@ -21,7 +26,7 @@ function Table ({data}) {
                             <td>{id}</td>
                             <td>{title}</td>
                             <td>{brand}</td>
-                            <td>{description}</td>
+                            <td>{truncate(description, 39)}</td>
                             <td>{price}</td>
                             <td>{rating}</td>
                             <td>{stock}</td>
